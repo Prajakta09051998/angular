@@ -1,0 +1,79 @@
+{
+  "user": [
+    {
+      "id": "1",
+      "userid": 1,
+      "username": "prajakta",
+      "email": "xsg@gmail.com",
+      "fullName": "prajakta kushe",
+      "Role": "Web Developer",
+      "password": "123456"
+    },
+    {
+      "id": "1",
+      "userid": 2,
+      "username": "bvnv",
+      "email": "dvxc",
+      "fullName": "xdcvxc",
+      "Role": "dsf",
+      "password": "xcv"
+    },
+    {
+      "id": "1",
+      "userid": 3,
+      "username": "",
+      "email": "",
+      "fullName": "",
+      "Role": "",
+      "password": ""
+    },
+    {
+      "id": "1",
+      "userid": 4,
+      "username": "",
+      "email": "",
+      "fullName": "",
+      "Role": "",
+      "password": ""
+    },
+    {
+      "id": "1",
+      "userid": 4,
+      "username": "",
+      "email": "",
+      "fullName": "",
+      "Role": "",
+      "password": ""
+    },
+    {
+      "id": "1",
+      "userid": 4,
+      "username": "",
+      "email": "",
+      "fullName": "",
+      "Role": "",
+      "password": ""
+    },
+    {
+      "id": 1,
+      "userid": 5,
+      "username": "",
+      "email": "",
+      "fullName": "",
+      "Role": "",
+      "password": ""
+    }
+  ],
+  "comments": [
+    {
+      "id": "1",
+      "body": "some comment",
+      "postId": 1,
+      "username": "prajakta"
+    }
+  ],
+  "profile": {
+    "name": "typicode",
+    "username": "prajakta"
+  }
+}

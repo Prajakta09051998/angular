@@ -1,1 +1,84 @@
-/* You can add global styles to this file, and also import other style files */
+@layer tailwind-base, primeng, tailwind-utilities;
+
+@layer tailwind-base {
+  @tailwind base;
+}
+
+@layer tailwind-utilities {
+  @tailwind components;
+  @tailwind utilities;
+}
+:root {
+  --black: #000;
+  --white: #fff;
+}
+.p-fileupload-header {
+  padding: 0 !important;
+}
+.upload-file-wrap {
+  min-height: 200px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  cursor: pointer;
+}
+.p-fileupload-content, .p-fileupload-content .p-progressbar {
+  display: none;
+}
+.p-menubar {
+  background-color: black !important;
+  border-radius: unset !important;
+  .p-menubar-item-label {
+    color: white;
+  }
+  .p-menubar-item-active > .p-menubar-item-content,
+  .p-menubar-item:not(.p-disabled) > .p-menubar-item-content:hover,.p-menubar-item.p-focus > .p-menubar-item-content {
+    background-color: black;
+    .p-menubar-item-label {
+      color: white;
+    }
+  }
+  .p-menubar-submenu {
+    .p-menubar-item-label {
+      color: black;
+    }
+  }
+}
+.upload-card {
+    .p-fileupload-file-list {
+        display: flex;
+        flex-direction: row;
+        .p-fileupload-file {
+            border-bottom: none;
+            &:not(:last-child) {
+                border-right: 1px solid #ddd;
+            }
+        }
+    }
+}
+input, .p-select, .p-multiselect {
+    height: 3.375rem;
+    border: 1px solid #cbd5e1;
+    border-radius: 0.25rem;
+    &::placeholder {
+      color: #695a5a;
+    }
+}
+.p-select-label {
+  line-height: 36px;
+}
+.container {
+  padding: 15px;
+}
+.show-img {
+  max-width: 300px;
+  width: auto;
+}
+button {
+  padding: 10px 20px;
+  border-radius: 0.25rem;
+  background-color: #000;
+  color: white;
+}

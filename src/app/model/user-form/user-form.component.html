@@ -1,0 +1,138 @@
+<p-card header="Simple Card">
+  <div class="grid grid-cols-2 gap-4">
+    <div class="">
+      <!-- <form id="userForm" [formGroup]="userForm"> -->
+      <div class="flex flex-col gap-2 form-group relative">
+        <label for="user-name">Reg No.</label>
+        <input
+          type="text"
+          pInputText
+          [(ngModel)]="carobj.RegNo"
+          name="RegNo"
+        />
+        <div *ngIf="userForm.get('username')?.touched && userForm.get('username')?.invalid">
+        User name is required.
+      </div>
+      </div>
+      <div class="flex flex-col gap-2 form-group relative">
+        <label for="user-name">Brand</label>
+        <input
+          type="text"
+          pInputText
+          [(ngModel)]="carobj.Brand"
+          name="Brand"
+        />
+      </div>
+      <div class="flex flex-col gap-2 form-group relative">
+        <label for="user-name">Model</label>
+        <input
+          type="text"
+          pInputText
+          [(ngModel)]="carobj.Model"
+          name="Model"
+        />
+      </div>
+      <div class="flex flex-col gap-2 form-group relative">
+        <label for="user-name">Year</label>
+        <input
+          type="text"
+          pInputText
+          [(ngModel)]="carobj.Year"
+          name="Year"
+        />
+      </div>
+      <div class="flex flex-col gap-2 form-group relative">
+        <label for="user-name">Color</label>
+        <input
+          type="text"
+          pInputText
+          [(ngModel)]="carobj.Color"
+          name="Color"
+        />
+      </div>
+      <div class="flex flex-col gap-2 form-group relative">
+        <label for="user-name">Daily Rate</label>
+        <input
+          type="text"
+          pInputText
+          [(ngModel)]="carobj.DailyRate"
+          name="DailyRate"
+        />
+      </div>
+      <div class="mt-4">
+        <p-button label="Submit" (click)="onSubmit()" />
+        <p-button
+          pButton
+          type="button"
+          label="Clear"
+          class="p-button-secondary"
+        />
+      </div>
+      <!-- </form> -->
+    </div>
+    <div>
+      <div class="card">
+        <p-table [value]="userList" [tableStyle]="{ 'min-width': '50rem' }">
+          <ng-template #header>
+            <tr>
+              <th>User ID</th>
+              <th>Username</th>
+              <th>Email</th>
+              <th>Phone</th>
+              <th>Website</th>
+            </tr>
+          </ng-template>
+          <ng-template #body let-product>
+            <tr>
+              <td>{{ product.id}}</td>
+                <td>{{ product.username }}</td>
+                <td>{{ product.email }}</td>
+                <td>{{ product.phone }}</td>
+                <td>{{ product.website }}</td>
+            </tr>
+          </ng-template>
+        </p-table>
+      </div>
+    </div>
+  </div>
+</p-card>
+<p-table [value]="getCarData" [tableStyle]="{ 'min-width': '50rem' }">
+  <ng-template #header>
+    <tr>
+      <th>Sr No</th>
+      <th>Brand</th>
+      <th>Model</th>
+      <th>Reg No</th>
+      <th>Color</th>
+      <th>Daily rate</th>
+      <th></th>
+    </tr>
+  </ng-template>
+   <ng-template #body let-carList>
+    <tr>
+      <td>
+        {{ carList?.carId }}
+      </td>
+      <td>
+        {{ carList?.brand }}
+      </td>
+      <td>
+        {{ carList?.model }}
+      </td>
+      <td>
+        {{ carList?.regNo }}
+      </td>
+      <td>
+        {{ carList?.color }}
+      </td>
+      <td>
+        {{ carList?.dailyRate }}
+      </td>
+      <td>
+        <a (click)="onEdit(carList)">
+          <img src="../../../assets/images/edit.png" alt="">
+        </a>
+      </td>
+    </tr>
+  </ng-template>
+</p-table>

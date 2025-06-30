@@ -1,0 +1,10 @@
+<p>input-output-binding works!</p>
+<progress id="file" [value]="IsProgress" max="100"> {{IsProgress}} % </progress>
+<div>
+    @for (item of tabList; track $index) {
+        <button class="btn btn-danger me-2" (click)="onTabChange(item)">{{item}}</button>
+    }
+  <p>Progress: {{ IsProgress }} %</p>
+    <!-- <p-button label="Success" severity="success" />
+    <p-button label="Info" severity="info" /> -->
+</div>

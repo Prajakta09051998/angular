@@ -1,0 +1,104 @@
+<div class="container">
+    <div class="grid grid-cols-4 gap-4 align-items-center">
+            <div>
+                <!-- string interpolation -->
+                <p>String interpolation : {{userData}}</p>
+            </div>
+            <div>
+                <!-- property binding-->
+                <p>Property Binding :</p>
+                <input type="text" pInputText [value]="userNumber"> 
+                <p-button label="submit" class="ms-2" (click)="showErrorMsg('invalid')"/>
+            </div>
+    
+        <!-- event binding -->
+        <div class="card">
+            <p-select [options]="cities" (onChange)="onStateChange()" [(ngModel)]="selectedCity" optionLabel="name" placeholder="Select a City" class="w-full md:w-56" />
+        </div>
+        <div>
+            <input type="text" [(ngModel)]="SelectedColor" placeholder="Enter Color">
+        </div>
+    </div>
+    <!-- directive -->
+    <div class="grid grid-cols-2 gap-4 align-items-center">
+            <div class="flex">
+            <p>Event Binding: </p>
+            <p [class.hidden] ="num1 != num2">Lorem Ipsum Lorem Ipsum</p>
+                <input class="me-4" type="number" placeholder="number 1" [(ngModel)]="num1">
+                <input type="number" placeholder="number 2" [(ngModel)]="num2">
+            </div>
+        <div class="flex pt-6">
+            <p-select [options]="cities" [(ngModel)]="selectedCity" optionLabel="name" placeholder="Select a City" class="w-full md:w-56" />
+            <div class="ms-2" *ngIf="selectedCity?.name == 'New York'">
+                <input type="text" pInputText  placeholder="Choose State">
+            </div>
+        </div>
+    </div>
+    <!-- <ul>
+        <li *ngFor="let city of cityList">{{city}}</li>
+    </ul> -->
+    <p class="pt-4">Bind City to select</p>
+    <div class="flex flex-col mb-4">
+        <label for="City">City: </label>
+        <p-select [options]="cityList" placeholder="Select a City" class="w-full md:w-56" />
+    </div>
+    <p>Control Statement</p>
+        <table class="table-auto border-collapse border border-gray-400">
+        <thead>
+                <tr>
+                    <th class="border border-gray-300">Sr No.</th>
+                    <th class="border border-gray-300">Name</th>
+                    <th class="border border-gray-300">City</th>
+                    <th class="border border-gray-300">Status</th>
+                    <th class="border border-gray-300">Grade</th>
+                    <th class="border border-gray-300">Attandance</th>
+                </tr>
+        </thead>
+        <tbody class="" *ngFor="let studentData of studentList; let sr = index">
+                <tr>
+                    <td class="border border-gray-300">
+                        {{sr+1}}
+                    </td>
+                    <td class="border border-gray-300">
+                        {{studentData?.name}}
+                    </td>
+                    <td class="border border-gray-300">
+                        {{studentData?.city}}
+                    </td>
+                    <td class="border border-gray-300">
+                        <p *ngIf="studentData?.IsActive">Student is Active</p>
+                        <p *ngIf="!studentData?.IsActive">Student is De-active</p>
+                    </td>
+                    <td class="border border-gray-300"> 
+                        @if(studentData?.grade == 'A') {
+                            {{studentData?.name}} has A grade.
+                        } @else if (studentData?.grade == 'B') {
+                            {{studentData?.name}} has B grade.
+                        } @else if(studentData?.grade == 'C') {
+                            {{studentData?.name}} has C grade.
+                        } @else {
+                            No grade found.
+                        }
+                    </td>
+                    <td class="border border-gray-300">
+                        <app-input-output-binding [IsProgress]="studentData?.attendance"></app-input-output-binding>
+                        {{studentData?.attendance}} %
+                    </td>
+                </tr>
+        </tbody>
+        </table>
+        <!-- Control flow statement -->
+        <p-button label="Show Image" (click)="showImage()"/>
+        @if(isImageShow == true) {
+            <img class="show-img" src="https://cdn.pixabay.com/photo/2015/04/23/22/00/new-year-background-736885_1280.jpg" alt="">
+        } @else {
+            <img class="show-img" src="https://images.ctfassets.net/hrltx12pl8hq/28ECAQiPJZ78hxatLTa7Ts/2f695d869736ae3b0de3e56ceaca3958/free-nature-images.jpg?fit=fill&w=1200&h=630" alt="">
+        }
+        <!-- attribute directive  -->
+         <p>Attribute directive</p>
+        <div [ngClass]="isOrderActive == true? 'bg-sucess' : 'bg-danger'">
+            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+        </div>
+        <input type="checkbox" [(ngModel)]="isOrderActive" pInputText>
+</div>
+<app-input-output-binding [tabList]="['Blue','Red', 'Black']" (onTabClicked)="onTabChange($event)"></app-input-output-binding>
